@@ -11,5 +11,15 @@
 
   <body>
     <%= yield %>
+    
+<footer>
+<ul>
+<li><%= link_to 'privacy', legal_privacy_path %></li>
+<li><%= link_to 'terms of use', legal_terms_of_use_path %></li> 
+<li><%= link_to 'cookies', legal_cookies_path %></li>
+<li><%= link_to 'social networks', legal_social_networks_path %></li>
+</ul>
+</footer>
+
   </body>
 </html>
