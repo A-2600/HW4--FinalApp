@@ -1,3 +1,14 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.avatar {
+width: 100px;
+height: 100px; 
+object-fit: cover; 
+border-radius: 50px;
+}
+.avatar.nano {
+width: 22px; 
+height: 22px; 
+border-radius: 6px;
+}

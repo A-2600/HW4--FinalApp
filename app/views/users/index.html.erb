@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th></th>
       <th>Firstname</th>
       <th>Lastname</th>
       <th>Email</th>
@@ -15,6 +16,10 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
+        <td>
+<% if user.avatar.attached? %>
+<%= image_tag user.avatar, alt: "Avatar", class: "avatar nano" %> <% end %>
+</td>
         <td><%= user.firstname %></td>
         <td><%= user.lastname %></td>
         <td><%= user.email %></td>
