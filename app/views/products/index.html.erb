@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Products</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Name</th>
+      <th>Sku</th>
+      <th>Price</th>
+      <th>Description</th>
+      <th></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td>
+<% if product.picture.attached? %>
+<%= image_tag product.picture, alt: "Picture", class: "picture nano" %> <% end %>
+</td>
+        <td><%= product.name %></td>
+        <td><%= product.sku %></td>
+        <td><%= product.price %></td>
+        <td><%= product.description %></td>
+        <td>
+          <button class="snipcart-add-item"
+data-item-id="<%= product.sku %>" 
+data-item-price="<%= product.price %>" 
+data-item-url="<%= url_for(product) %>" 
+data-item-description="<%= product.description %>" 
+data-item-image="<%= url_for(product.picture) %>" 
+data-item-name="<%= product.name %>">
+    Add to cart
+  </button>
+  </td>
+        <td><%= link_to 'Show', product %></td>
+        <td><%= link_to 'Edit', edit_product_path(product) %></td>
+        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Product', new_product_path %>

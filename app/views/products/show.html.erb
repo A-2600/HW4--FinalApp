@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<% if @product.picture.attached? %>
+<%= image_tag @product.picture, alt: "Picture", class: "picture" %>
+  <% end %>
+  <button class="snipcart-add-item"
+data-item-id="<%= @product.sku %>" 
+data-item-price="<%= @product.price %>" 
+data-item-url="<%= url_for(@product) %>" 
+data-item-description="<%= @product.description %>" 
+data-item-image="<%= url_for(@product.picture) %>" 
+data-item-name="<%= @product.name %>">
+    Add to cart
+  </button>
+<p>
+  <strong>Name:</strong>
+  <%= @product.name %>
+</p>
+
+<p>
+  <strong>Sku:</strong>
+  <%= @product.sku %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @product.price %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @product.description %>
+</p>
+
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>
